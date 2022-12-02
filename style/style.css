@@ -7,6 +7,17 @@ a {
 
 /* latin-ext */
 
+.menu_buttons {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    
+    justify-content: center !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 999 !important;
+    background-color: rgba(0,0,0,0.3);
+}
+
 @font-face {
     font-family: banb;
     src: url(/assets/fonts/banb.ttf);
@@ -3258,20 +3269,27 @@ body {
     width: 100% !important;
 }
 
+.menu_buttons{
+
+
+
+    color: #2a2828;
+   
+ justify-content: left !important;
+
+    overflow-x: hidden;
+    overflow-x: scroll;
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+    width: auto;
+
+
+
+    }
 
 }
 
 
-.menu_buttons {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    
-    justify-content: center !important;
-    position: sticky !important;
-    top: 0 !important;
-    z-index: 999 !important;
-    background-color: rgba(0,0,0,0.3);
-}
+
 
 .hire_form{
     width: 100%;
