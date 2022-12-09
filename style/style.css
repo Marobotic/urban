@@ -1111,6 +1111,8 @@ input:hover {
     border: none;
     text-align: center !important;
     cursor: pointer;
+    color:fff;
+    border-radius: 10px;
     font-size: 18px;
     border: 1px solid #36383a;
     background-color: 0;

@@ -19,10 +19,18 @@
     <!-- Include this to make the og:image larger -->
     <!-- <meta name="twitter:card" content="summary_large_image"> -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/all.css">
+    <script src="script.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+    (function() {
+        emailjs.init("BIiaJyfpPoC1H5wl7");
+    })();
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 </head>
 
 <body>
-      <div class="menu_buttons">
+    <div class="menu_buttons">
         <a href="/">
             <div class="butt"> Home </div>
         </a>
@@ -40,15 +48,14 @@
         </a>
     </div>
     <div class="sexy_container2">
-      <div class="contact_top_div">
-            <div  class="logo_container"style=" align-self: center; margin-left: 10px;">
+        <div class="contact_top_div">
+            <div class="logo_container" style=" align-self: center; margin-left: 10px;">
                 <div class="logo"> </div>
                 <p class="big_text urban_title" style="margin-bottom: 0px;"> The Urban Crew</p>
-
-                 <p class="" style=" color: #FDD749"> We create opportunities out of problems</p>
+                <p class="" style=" color: #FDD749"> We create opportunities out of problems</p>
             </div>
         </div>
-        <div style="display: flex; flex-direction: column; margin-bottom: 100px;">
+        <div style="display: flex; flex-direction: column; margin-bottom: 100px;" class="hire_window">
             <div class="big_window" style="margin-top:-100px; padding: 25px;">
                 <h1 style=""> Hire a Virutal Assistant!</h1>
                 <p> Our organization goal is help companies generate more leads; to connect with more people and invest more in their business. We thrive to deliver the best quality virtual assistants. Our strength lies with our teamwork with one another and having the best lanes of communication in order to achieve our goals in the most efficent way.</p>
@@ -56,21 +63,55 @@
             <div class="big_window" style="margin-top: 26px; padding: 25px;">
                 <h1 style=""> Hire a VA Form</h1>
                 <form style="background:0;" method="post" class="hire_form" action="/">
-                    <input type="text" class="" placeholder="Full Name">
-                    <input type="text" class="" placeholder="Company / Organization">
-                    <input type="text" class="" placeholder="Email">
-                    <input type="text" class="" placeholder="Phone number">
-                    <input type="text" class="" placeholder="Job Title">
-                    <textarea type="text" class="job_desc" style="height: 300px; width: 100%; border-radius: 10px; padding: 15px     margin-bottom: 5px;
-    background: #040609;
-    border: 1px solid #36383a;
-    color: #fff;
-    padding: 10px 15px;" placeholder="Job Description"></textarea>
-                    <input type="submit" value="Submit application" onclick="alert('Submitting is Disabled, WIP')" class="submit_button direct_DL">
+                    <input type="text" id="name" class="" placeholder="Full Name*">
+                    <input type="text" id="company" placeholder="Company / Organization*">
+                    <input type="email" id="email" class="" placeholder="Email*">
+                    <input type="number" id="phone" placeholder="Phone number*">
+                    <input type="text" class="" id="title" placeholder="Job Title*">
+                    <textarea type="text" class="job_desc" id="message" style="height: 300px; width: 100%; border-radius: 10px; padding: 15px margin-bottom: 5px; background: #040609;  border: 1px solid #36383a; color: #fff; padding: 10px 15px;" placeholder="Job Description (Optional)"></textarea>
                 </form>
+                <button class="submit_button direct_DL" id="register" onclick="sendMail()" disabled="disabled">Submit</button>
             </div>
         </div>
-    </div>
+        <script>
+        $(document).ready(function() {
+            $(".hire_success").hide();
+        });
+        </script>
+
+        <script> 
+
+(function() {
+    $('form > input').keyup(function() {
+
+        var empty = false;
+        $('form > input').each(function() {
+            if ($(this).val() == '') {
+                empty = true;
+            }
+        });
+
+        if (empty) {
+            $('#register').attr('disabled', 'disabled'); // updated according to http://stackoverflow.com/questions/7637790/how-to-remove-disabled-attribute-with-jquery-ie
+        } else {
+            $('#register').removeAttr('disabled'); // updated according to http://stackoverflow.com/questions/7637790/how-to-remove-disabled-attribute-with-jquery-ie
+        }
+    });
+})()
+        </script>
+
+        <style>
+.submit_button:disabled {
+    display: none;
+}
+
+
+         </style>
+        <div style="display: flex; flex-direction: column; margin-bottom: 100px;" class="hire_success">
+            <div class="big_window" style="margin-top:-100px; padding: 25px;">
+                <h1 style=""> We recieved your email successfuly! we will reach out to you as soon as we can, thank you!</h1>
+            </div>
+        </div>
 </body>
 
 </html>
